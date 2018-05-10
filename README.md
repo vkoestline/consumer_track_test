@@ -78,18 +78,25 @@ Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set 
 
 > `aws configure`
 
-# Install 
+# Install
 
 On Ubuntu server:
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
+
 
 # Execute
 
 To create infrastructure:
 
 > `cd consumer_track_test`
-> 'terraform init'
+
+If you need to run the prerequisite tools script, then
+
+- > `source prerequisites.sh`  (make sure to configure AWS secret and access keys)
+
+> `terraform init`
+
 > `terraform apply -auto-approve`
 
 You'll see the progress of the infrastructure as its being created.  When the process is complete, you will see the following information:
@@ -106,7 +113,11 @@ To test the load balancer hitting each node, refresh the page once every second 
 
 ![alt text](https://github.com/vkoestline/consumer_track_test/blob/master/documentation/consumer_track.gif "Nginx Node")
 
+# Destroy
 
+To destroy the infrastructure:
+
+> `terraform destroy`
 
 
 
