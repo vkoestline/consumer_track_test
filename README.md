@@ -77,9 +77,13 @@ To install the components separately, follow these instructions:
 Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set the default region
 
 > `aws configure`
+
 > `AWS Access Key ID [****************PQOA]:` 
+
 > `AWS Secret Access Key [****************lkig]: `
+
 > `Default region name [us-west-2]:` 
+
 > `Default output format [None]: `
 
 # Install
