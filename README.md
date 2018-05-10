@@ -63,7 +63,7 @@ On a clean EC2 instance
 
 > `sudo pip install --upgrade pip`
 
-Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set the default region
 
 > `aws configure`
 
@@ -78,7 +78,19 @@ On Ubuntu server:
 To create infrastructure:
 
 > `cd consumer_track_test`
-
+> 'terraform init'
 > `terraform apply -auto-approve`
+
+You'll see the progress of the infrastructure as its being created.  When the process is complete, you will see the following information:
+
+`Apply complete! Resources: 5 added, 0 changed, 0 destroyed.`
+`Outputs:`
+`nginx_domain = nginx-lb-537813355.us-west-2.elb.amazonaws.com`
+
+The outputted value of the nginx_domain is the load balancer domain.  Copy the domain outputted to your screen and paste it into a browser.  
+To test the load balancer hitting each node, refresh the page once every second to see the instance data 
+
+
+
 
 
