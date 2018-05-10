@@ -48,15 +48,15 @@ Example:
 
 On a clean EC2 instance
  
-`wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
-`sudo apt-get install unzip
-`unzip terraform_0.11.7_linux_amd64.zip
-`sudo cp terraform /usr/local/bin/
+`wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip`
+`sudo apt-get install unzip`
+`unzip terraform_0.11.7_linux_amd64.zip`
+`sudo cp terraform /usr/local/bin/`
 
-`sudo apt-get update
-`sudo apt install python-pip
-`sudo pip install awscli --upgrade --user
-`sudo pip install --upgrade pip
+`sudo apt-get update`
+`sudo apt install python-pip`
+`sudo pip install awscli --upgrade --user`
+`sudo pip install --upgrade pip`
 
 Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 aws configure
@@ -64,11 +64,11 @@ aws configure
 # Install 
 
 On Ubuntu server:
-`git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test
+`git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
 # Execute
 
 To create infrastructure, from the consumer_track_test directory run:
-`terraform apply -auto-approve 
+`terraform apply -auto-approve`
 
 
