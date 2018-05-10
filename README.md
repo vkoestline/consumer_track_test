@@ -93,6 +93,8 @@ The outputted value of the nginx_domain is the load balancer domain.  Copy the d
 
 To test the load balancer hitting each node, refresh the page once every second to see the instance data 
 
+![alt text](https://github.com/vkoestline/consumer_track_test/blob/master/documentation/consumer_track.gif "Nginx Node")
+
 
 
 
