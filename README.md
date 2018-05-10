@@ -36,17 +36,28 @@ Assumptions / Shortcuts:
 - No Scaling functionality 
 
 # Prerequisites
-- Need to have Terraform
-- Need to have unzip utility 
-- Need to have AWS CLI configured 
-- Need to have an AWS account with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY 
-- Need to have proper AWS access to create resources 
-- Ubuntu server to run test
+
+You need the following tools to be able to launch this infrastructure/application.
+
+- Terraform
+- Unzip  
+- An AWS account with appropriate accesses to launch infrastructure
+- AWS CLI installed and configured
+- AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  
+
+You can install all the prerequisite tools by either:
+
+- running the prerequisites.sh file after cloning your repository (assumes nothing is previously installed)
+- downloading the necessary tools separately
 
 Example:
 
-On a clean EC2 instance
- 
+To run the prerequisites.sh script, type the following on a clean EC2 instance:
+
+> `source prerequisites.sh`
+
+To install the components separately, follow these instructions:
+
 > `wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip` 
 
 > `sudo apt-get install unzip`
