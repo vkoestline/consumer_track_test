@@ -84,10 +84,13 @@ To create infrastructure:
 You'll see the progress of the infrastructure as its being created.  When the process is complete, you will see the following information:
 
 `Apply complete! Resources: 5 added, 0 changed, 0 destroyed.`
+
 `Outputs:`
+
 `nginx_domain = nginx-lb-537813355.us-west-2.elb.amazonaws.com`
 
 The outputted value of the nginx_domain is the load balancer domain.  Copy the domain outputted to your screen and paste it into a browser.  
+
 To test the load balancer hitting each node, refresh the page once every second to see the instance data 
 
 
