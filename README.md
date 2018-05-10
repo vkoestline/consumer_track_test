@@ -1,7 +1,6 @@
-# consumer_track_test
-### Technical Assessment for ConsumerTrack
+# Technical Assessment for ConsumerTrack
 
-# Product Description
+# Problem Description
 
 Purpose: To demonstrate you have a working knowledge AWS and can present a final product
 with clear documentation and instructions for use.
@@ -23,18 +22,18 @@ You will also need to create security groups and other supporting resources to a
 connectivity. The rules of the security group and other supporting resources will not be
 evaluated as part of this assessment, only required to allow connectivity.
 
-# Design Decisions
+# Product Design
 
-This solutions uses Terraform to build the infrastructure as code in AWS.  
+This solutions uses Terraform to build the infrastructure as code in AWS.  The solution also uses a user_data shell script to install all necessary software on each of the nginx nodes and parameterizes the index.html file.   
 
 Assumptions / Shortcuts:
+- Uses default VPC
+- Sets region to us-west-2.  Since the requirement is to have 3 availability zones.  
+- Security groups on port 80 are open to the world.  All other ports are closed (no ssh access for troubleshooting).
+- Tagging consists of only name.   In a real world scenario, we would set additional tags based on a set standard.
+- Using the userdata script to create the index.html file sets the instance data as environment variables and then uses substitutions within an index.html template.  Ideally, we would manage the index.html using a configuration management tool (Puppet, Chef, etc).
 - No Cloudwatch alarms are set
 - No Scaling functionality 
-- Did not create a separate VPC, instead using default
-- Security groups on port 80 are open to the world, this would need to be adjusted
-- Simple tagging with only name 
-- Using userdata to create index file instead of puppet or other configuration management system
-
 
 # Prerequisites
 - Need to have Terraform
