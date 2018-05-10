@@ -13,7 +13,7 @@ Assumptions / Shortcuts:
 - Using userdata to create index file instead of puppet or other configuration management system
 
 
-Prerequisites
+# Prerequisites
 - Need to have Terraform
 - Need to have unzip utility 
 - Need to have AWS CLI configured 
@@ -35,15 +35,15 @@ sudo apt install python-pip
 sudo pip install awscli --upgrade --user
 sudo pip install --upgrade pip
 
-# Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 aws configure
 
-Install 
+# Install 
 
 On Ubuntu server:
 git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test
 
-Execute
+# Execute
 
 Run 'terraform apply -auto-approve' to create infrastructure
 
