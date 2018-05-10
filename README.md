@@ -1,14 +1,12 @@
 # consumer_track_test
 ### Technical Assessment for ConsumerTrack
-Technical Test for employment at ConsumerTrack
-What is this?
 
 # Product Description
 
-Purpose:​ To demonstrate you have a working knowledge AWS and can present a final product
+Purpose: To demonstrate you have a working knowledge AWS and can present a final product
 with clear documentation and instructions for use.
 
-Expected​ ​Result:​ A user should be able to visit the URL of an Elastic Load Balancer, and it
+Expected Result: A user should be able to visit the URL of an Elastic Load Balancer, and it
 should return some details about the instance behind the load balancer. As the user refreshes
 the ELB URL, the load balancer should send the user to another instance in a different
 Availability Zone, the instance details should be presented to the browser.
@@ -26,6 +24,8 @@ connectivity. The rules of the security group and other supporting resources wil
 evaluated as part of this assessment, only required to allow connectivity.
 
 # Design Decisions
+
+This solutions uses Terraform to build the infrastructure as code in AWS.  
 
 Assumptions / Shortcuts:
 - No Cloudwatch alarms are set
@@ -48,15 +48,15 @@ Example:
 
 On a clean EC2 instance
  
-wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
-sudo apt-get install unzip
-unzip terraform_0.11.7_linux_amd64.zip
-sudo cp terraform /usr/local/bin/
+`wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+`sudo apt-get install unzip
+`unzip terraform_0.11.7_linux_amd64.zip
+`sudo cp terraform /usr/local/bin/
 
-sudo apt-get update
-sudo apt install python-pip
-sudo pip install awscli --upgrade --user
-sudo pip install --upgrade pip
+`sudo apt-get update
+`sudo apt install python-pip
+`sudo pip install awscli --upgrade --user
+`sudo pip install --upgrade pip
 
 Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 aws configure
@@ -64,10 +64,11 @@ aws configure
 # Install 
 
 On Ubuntu server:
-git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test
+`git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test
 
 # Execute
 
-Run 'terraform apply -auto-approve' to create infrastructure
+To create infrastructure, from the consumer_track_test directory run:
+`terraform apply -auto-approve 
 
 
