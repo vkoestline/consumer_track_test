@@ -1,6 +1,3 @@
-# consumer_track_test
-Technical Test for employment at ConsumerTrack
-
 What is this?
 
 Design Decisions
@@ -41,13 +38,10 @@ aws configure
 
 Install 
 
-mkdir vkoestline_test
-cd vkoestline_test
-git clone XXXX
+On Ubuntu server:
+git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test
 
 Execute
 
-Run 'terraform apply' to create infrastructure
-
-
+Run 'terraform apply -auto-approve' to create infrastructure
 
