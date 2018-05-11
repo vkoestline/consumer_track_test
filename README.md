@@ -45,18 +45,24 @@ You need the following tools to be able to launch this infrastructure/applicatio
 - AWS CLI installed and configured
 - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  
 
+# Installing Prerequisites 
+
 You can install all the prerequisite tools by either:
 
 - running the prerequisites.sh file after cloning your repository (assumes nothing is previously installed)
 - downloading the necessary tools separately
 
-Example:
+### Install Via Script
 
-To run the prerequisites.sh script, type the following on a clean EC2 instance:
+To run the prerequisites.sh script on a clean EC2 instance, first clone this repository, then run:
+
+> `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
 > `source prerequisites.sh`
 
-To install the components separately, follow these instructions:
+### Install Each Component Separately
+
+These commands will help you install each of the prerequisites as needed.
 
 > `wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip` 
 
@@ -86,14 +92,13 @@ Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set 
 
 > `Default output format [None]: `
 
-# Install
+# Download/Install
 
-On Ubuntu server:
+If you have already cloned the repository, you can skip this step.  If you manually installed the prerequisites, you can now clone the repository:
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
-
-# Execute
+# Execute/Build Infrastructure
 
 To create infrastructure:
 
