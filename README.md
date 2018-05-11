@@ -32,8 +32,8 @@ Assumptions / Shortcuts:
 - Security groups on port 80 are open to the world.  All other ports are closed (no ssh access for troubleshooting).
 - Tagging consists of only name.   In a real world scenario, we would set additional tags based on a set standard.
 - Using the userdata script to create the index.html file sets the instance data as environment variables and then uses substitutions within an index.html template.  Ideally, we would manage the index.html using a configuration management tool (Puppet, Chef, etc).
-- No Cloudwatch alarms are set
-- No Scaling functionality 
+- Cloudwatch alarms are set with arbitrary thresholds
+- Scaling is on CPUUtilization 
 
 # Prerequisites
 
