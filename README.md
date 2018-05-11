@@ -2,7 +2,7 @@
 
 # Problem Description
 
-Purpose: To demonstrate you have a working knowledge AWS and can present a final product
+Purpose: To demonstrate you have a working knowledge of AWS and can present a final product
 with clear documentation and instructions for use.
 
 Expected Result: A user should be able to visit the URL of an Elastic Load Balancer, and it
@@ -24,26 +24,27 @@ evaluated as part of this assessment, only required to allow connectivity.
 
 # Product Design
 
-This solutions uses Terraform to build the infrastructure as code in AWS.  The solution also uses a user_data shell script to install all necessary software on each of the nginx nodes and parameterizes the index.html file.   
+This solutions uses Terraform to build the infrastructure-as-code in AWS.  The solution also uses a user_data shell script to install all necessary software on each of the nginx nodes and parameterizes the index.html file.   
 
 Assumptions / Shortcuts:
 - Uses default VPC
-- Sets region to us-west-2.  Since the requirement is to have 3 availability zones.  
+- Sets region to us-west-2, since the requirement is to have 3 availability zones.  Otherwise, it uses all the AZ's in a region.
 - Security groups on port 80 are open to the world.  All other ports are closed (no ssh access for troubleshooting).
 - Tagging consists of only name.   In a real world scenario, we would set additional tags based on a set standard.
 - Using the userdata script to create the index.html file sets the instance data as environment variables and then uses substitutions within an index.html template.  Ideally, we would manage the index.html using a configuration management tool (Puppet, Chef, etc).
 - Cloudwatch alarms are set with arbitrary thresholds
-- Scaling is on CPUUtilization 
+- Scaling is on CPUUtilization
 
 # Prerequisites
 
 You need the following tools to be able to launch this infrastructure/application.
 
 - Terraform
-- Unzip  
+- Unzip utility
 - An AWS account with appropriate accesses to launch infrastructure
 - AWS CLI installed and configured
 - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  
+- Ubuntu server (from which to launch the code)
 
 # Installing Prerequisites 
 
@@ -54,15 +55,17 @@ You can install all the prerequisite tools by either:
 
 ### Install Via Script
 
-To run the prerequisites.sh script on a clean EC2 instance, first clone this repository, then run:
+To run the prerequisites.sh script on a clean EC2 instance, first clone this repository
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
+
+then run:
 
 > `source prerequisites.sh`
 
 ### Install Each Component Separately
 
-These commands will help you install each of the prerequisites as needed.
+Alternatively, you can install the specific components as needed.  The following are a set of commands that enable the tools to be installed separately.  Use as needed.
 
 > `wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip` 
 
@@ -79,6 +82,8 @@ These commands will help you install each of the prerequisites as needed.
 > `sudo pip install awscli --upgrade --user`
 
 > `sudo pip install --upgrade pip`
+
+### AWS Credentials
 
 Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set the default region
 
@@ -100,11 +105,15 @@ If you have already cloned the repository, you can skip this step.  If you manua
 
 # Execute/Build Infrastructure
 
-To create infrastructure:
+To create the full nginx infrastructure:
 
 > `cd consumer_track_test`
 
+Run the init function in the directory where the .tf files are located:
+
 > `terraform init`
+
+Then run apply to launch the changes.  
 
 > `terraform apply -auto-approve`
 
@@ -114,7 +123,7 @@ You'll see the progress of the infrastructure as its being created.  When the pr
 
 `Outputs:`
 
-`nginx_domain = nginx-lb-537813355.us-west-2.elb.amazonaws.com`
+`nginx_domain = nginx-lb-XXXXXXXXX.us-west-2.elb.amazonaws.com`
 
 The outputted value of the nginx_domain is the load balancer domain.  Copy the domain outputted to your screen and paste it into a browser.  
 
