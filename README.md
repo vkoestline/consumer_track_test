@@ -44,18 +44,13 @@ You need the following tools to be able to launch this infrastructure/applicatio
 - An AWS account with appropriate accesses to launch infrastructure
 - AWS CLI installed and configured
 - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  
-- Ubuntu server (from which to launch the code)
+- Server running Ubuntu 16 (from which to launch the code)
 
 # Installing Prerequisites 
 
-You can install all the prerequisite tools by either:
+You can install all the prerequisite tools on a clean Ubuntu instance, by doing the following:
 
-- running the prerequisites.sh file after cloning your repository (assumes nothing is previously installed)
-- downloading the necessary tools separately
-
-### Install Via Script
-
-To run the prerequisites.sh script on a clean EC2 instance, first clone this repository
+Clone the repository
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
@@ -65,25 +60,7 @@ then run:
 
 > `source prerequisites.sh`
 
-### Install Each Component Separately
-
-Alternatively, you can install the specific components as needed.  The following are a set of commands that enable the tools to be installed separately.  Use as needed.
-
-> `wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip` 
-
-> `sudo apt-get install unzip`
-
-> `unzip terraform_0.11.7_linux_amd64.zip`
-
-> `sudo cp terraform /usr/local/bin/`
-
-> `sudo apt-get update`
-
-> `sudo apt install python-pip`
-
-> `sudo pip install awscli --upgrade --user`
-
-> `sudo pip install --upgrade pip`
+The script will install all needed software and run the AWS CLI configure command, which will prompt you to configure your AWS credentials to be able to run the Terraform code.
 
 ### AWS Credentials
 
@@ -99,15 +76,9 @@ Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set 
 
 > `Default output format [None]: `
 
-# Download/Install
-
-If you have already cloned the repository, you can skip this step.  If you manually installed the prerequisites, you can now clone the repository:
-
-> `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
-
-> `cd consumer_track_test`
-
 # Execute/Build Infrastructure
+
+After you have installed the necessary tools, you can now launch the infrastructure.
 
 To create the full nginx infrastructure, run the init function in the directory where the .tf files are located:
 
