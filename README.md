@@ -59,6 +59,8 @@ To run the prerequisites.sh script on a clean EC2 instance, first clone this rep
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
+> `cd consumer_track_test`
+
 then run:
 
 > `source prerequisites.sh`
@@ -103,13 +105,11 @@ If you have already cloned the repository, you can skip this step.  If you manua
 
 > `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
 
-# Execute/Build Infrastructure
-
-To create the full nginx infrastructure:
-
 > `cd consumer_track_test`
 
-Run the init function in the directory where the .tf files are located:
+# Execute/Build Infrastructure
+
+To create the full nginx infrastructure, run the init function in the directory where the .tf files are located:
 
 > `terraform init`
 
@@ -135,7 +135,7 @@ To test the load balancer hitting each node, refresh the page once every second 
 
 To destroy the infrastructure:
 
-> `terraform destroy`
+> `terraform destroy -auto-approve`
 
 
 
