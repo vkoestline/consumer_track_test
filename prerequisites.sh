@@ -25,5 +25,8 @@ pip install --upgrade pip
 # Add AWSCLI to the user's PATH
 export PATH=~/.local/bin:$PATH
 
+# Back to the main directory
+cd ../
+
 # Configure AWS
 aws configure
