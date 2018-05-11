@@ -104,10 +104,6 @@ To create infrastructure:
 
 > `cd consumer_track_test`
 
-If you need to run the prerequisite tools script, then
-
-- > `source prerequisites.sh`  (make sure to configure AWS secret and access keys)
-
 > `terraform init`
 
 > `terraform apply -auto-approve`
