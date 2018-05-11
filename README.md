@@ -66,8 +66,6 @@ The script will install all needed software and run the AWS CLI configure comman
 
 Update AWS configuration with AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and set the default region
 
-> `aws configure`
-
 > `AWS Access Key ID [****************PQOA]:` 
 
 > `AWS Secret Access Key [****************lkig]: `
