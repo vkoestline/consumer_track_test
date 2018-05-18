@@ -1,10 +1,21 @@
+## --------------------------------------
+## Data Source to Get All Subnet Ids
+## --------------------------------------
+#data "aws_subnet_ids" "public" {
+#  vpc_id = "${module.networking.vpc_id}"
+#  tags {
+#    Tier = "Public"
+#  }
+#}
+
+
 # --------------------------------------
-# ELB for Nginx
+# ELB for Nginx in Public Subnets With Standard HTTP Traffic
 # --------------------------------------
 resource "aws_elb" "nginx" {
   name            = "nginx-lb"
   security_groups = ["${aws_security_group.elb_security_group.id}"]
-  availability_zones = ["${data.aws_availability_zones.available.names}"]
+  subnets = ["${module.networking.public_subnets}"]
 
   listener {
     instance_port     = 80

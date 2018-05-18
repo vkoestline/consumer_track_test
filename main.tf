@@ -5,9 +5,6 @@ provider "aws" {
   region = "${var.region}"
 }
 
-# PUT A SECURITY GROUP IN HERE FOR WEB ACCESS
-
-
 # --------------------------------------
 # Load Index File
 # --------------------------------------
@@ -17,7 +14,7 @@ data "template_file" "index_file" {
 
 
 # --------------------------------------
-# Parameterize Puppet Agent
+# Parameterize Nginx Index File in User Data Script
 # --------------------------------------
 data "template_file" "user_data_nginx_server" {
   template = "${file("${path.module}/user_data_nginx.sh")}"
@@ -26,13 +23,6 @@ data "template_file" "user_data_nginx_server" {
     index_file = "${data.template_file.index_file.rendered}" 
   }
 }
-
-
-
-# --------------------------------------
-# Get all AZs
-# --------------------------------------
-data "aws_availability_zones" "available" {}
 
 # --------------------------------------
 # Create Nginx Launch Configuration 
@@ -59,8 +49,8 @@ resource "aws_autoscaling_group" "nginx_autoscaling_group" {
   max_size             = "${var.max_nginx_servers}"
   desired_capacity     = "${var.desired_nginx_servers}"
   launch_configuration = "${aws_launch_configuration.nginx_server.name}"
-  availability_zones   = ["${data.aws_availability_zones.available.names}"]
   load_balancers       = ["${aws_elb.nginx.name}"]
+  vpc_zone_identifier  = ["${module.networking.private_subnets}"]
 
   lifecycle {
     create_before_destroy = true
