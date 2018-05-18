@@ -1,26 +1,7 @@
-# Technical Assessment for ConsumerTrack
+# Nginx Cluster with Multiple Nodes
 
 # Problem Description
-
-Purpose: To demonstrate you have a working knowledge of AWS and can present a final product
-with clear documentation and instructions for use.
-
-Expected Result: A user should be able to visit the URL of an Elastic Load Balancer, and it
-should return some details about the instance behind the load balancer. As the user refreshes
-the ELB URL, the load balancer should send the user to another instance in a different
-Availability Zone, the instance details should be presented to the browser.
-
-Details:
-Using whatever tools you like please create the following:
-
-Elastic Load Balancer, Launch Configuration, Auto Scaling Group (Minimum of 3 instances in a minimum of 3 Availability Zones), and scripts to:
-
-1. Install Nginx
-2. Create an index.html file in the Nginx webroot that contains Instance ID, Instance Type, Private IP address of the instance, Availability zone the instance is in, and AMI ID.
-
-You will also need to create security groups and other supporting resources to allow
-connectivity. The rules of the security group and other supporting resources will not be
-evaluated as part of this assessment, only required to allow connectivity.
+Each node displays specific information that identifies the node
 
 # Product Design
 
@@ -52,9 +33,9 @@ You can install all the prerequisite tools on a clean Ubuntu instance, by doing 
 
 Clone the repository
 
-> `git clone https://github.com/vkoestline/consumer_track_test.git consumer_track_test`
+> `git clone https://github.com/vkoestline/nginx_cluster.git nginx_cluster`
 
-> `cd consumer_track_test`
+> `cd nginx_cluster
 
 then run:
 
@@ -97,8 +78,6 @@ You'll see the progress of the infrastructure as its being created.  When the pr
 The outputted value of the nginx_domain is the load balancer domain.  Copy the domain outputted to your screen and paste it into a browser.  
 
 To test the load balancer hitting each node, refresh the page once every second to see the instance data 
-
-![alt text](https://github.com/vkoestline/consumer_track_test/blob/master/documentation/consumer_track.gif "Nginx Node")
 
 # Destroy
 
