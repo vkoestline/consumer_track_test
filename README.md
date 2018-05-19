@@ -1,7 +1,7 @@
 # Nginx Cluster with Multiple Nodes
 
 # Problem Description
-Each node displays specific information that identifies the node
+Build an nginx cluster, with each node displays specific information that identifies the node
 
 # Product Design
 
